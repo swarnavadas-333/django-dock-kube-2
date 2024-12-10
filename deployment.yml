@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-django-app
+  labels:
+    app: todo-django-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: todo-django-app
+  template:
+    metadata:
+      labels:
+        app: todo-django-app
+    spec:
+      containers:
+      - name: todo-python-django-app
+        image: gopalswarnava333/todo-django-app:latest
+        ports:
+        - containerPort: 8000
+
